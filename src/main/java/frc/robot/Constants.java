@@ -37,17 +37,17 @@ public class Constants {
 
   public static class Intake
   {
-    public static int intakeLeftID = 15;
-    public static int intakeRightID = 16;
-    public static boolean leftInvert = false; 
+    public static int intakeLeftID = 16;
+    public static int intakeRightID = 15;
+    public static boolean leftInvert = true; 
     public static boolean rightInvert = false; 
 
   }
 
   public static class Arm
   {
-    public static final int armLeftID = 17;
-    public static final int armRightID = 18;
+    public static final int armLeftID = 18;
+    public static final int armRightID = 17;
     public static final double armSpeed = 0.2;
     public static final boolean leftInvert = false; 
     public static final boolean rightInvert = true; 
@@ -56,10 +56,21 @@ public class Constants {
     public static final double kd = 0.2;
   }
 
+  public static class Hood
+  {
+    public static final int hoodID = 47;
+  }
+
+  public static class Loader
+  {
+    public static final int loaderID = 50;
+    public static final boolean motorInvert = false; 
+  }
+
   public static class Shooter
   {
     public static final int shooterLeftID = 19;
-    public static int shooterRightID = 20;
+    public static final int shooterRightID = 20;
     public static boolean leftInvert = true; 
     public static boolean rightInvert = true; 
     public static double shootSpeed = 1;

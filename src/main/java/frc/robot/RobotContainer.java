@@ -24,10 +24,12 @@ public class RobotContainer {
 
   private final SwerveSubsystem drivebase = new SwerveSubsystem(new File(Filesystem.getDeployDirectory(),
       "JsonConstants"));
-  private final  armSubystem arm = new armSubystem();
-  private final shooterSubsystem shooter = new shooterSubsystem();
+  // private final  armSubystem arm = new armSubystem();
+  // private final shooterSubsystem shooter = new shooterSubsystem();
   private final intakeSubsystem intake = new intakeSubsystem();
-  private final climberSubsystem climber = new climberSubsystem();
+  private final hoodSubsystem hood = new hoodSubsystem();
+  // private final loaderSubsystem loader = new loaderSubsystem();
+  // private final climberSubsystem climber = new climberSubsystem();
   final CommandXboxController driverXbox = new CommandXboxController(0);
   // final Joystick joystick = new Joystick(1);
 
@@ -54,13 +56,16 @@ public class RobotContainer {
   private void configureBindings() {
     //driverXbox.a().whileTrue(new Aim(drivebase, armsubsystem));
     // driverXbox.b().whileTrue(new shooterCmd(shooter, Constants.Shooter.shootSpeed));
-    driverXbox.a().whileTrue(new shooterCmd(shooter, 1));    
-    driverXbox.b().whileTrue(Commands.runOnce(drivebase::zeroGyro));
-    driverXbox.x().whileTrue(new Align(drivebase));
-    driverXbox.y().whileTrue(new intakeCmd(intake, 0.2));
+    // driverXbox.a().whileTrue(new shooterCmd(shooter, 1));    
+    // driverXbox.b().whileTrue(Commands.runOnce(drivebase::zeroGyro));
+    // driverXbox.x().whileTrue(new Align(drivebase));
+    driverXbox.y().whileTrue(new intakeCmd(intake, -0.3));
+    driverXbox.x().whileTrue(new hoodCmd(hood, -0.1));
+    driverXbox.a().whileTrue(new hoodCmd(hood, 0.1));
+    // driverXbox.b().whileTrue(new loaderCmd(loader, 0.2));
 
-    driverXbox.leftBumper().whileTrue(new armCmd(arm, 1));
-    driverXbox.rightBumper().whileTrue(new armCmd(arm, 1));
+    // driverXbox.leftBumper().whileTrue(new armCmd(arm, 1));
+    // driverXbox.rightBumper().whileTrue(new armCmd(arm, 1));
 
   }
 
@@ -69,6 +74,6 @@ public class RobotContainer {
   }
 
   public void setMotorBrake(boolean brake) {
-    drivebase.setMotorBrake(brake);
+    // drivebase.setMotorBrake(brake);
   }
 }
